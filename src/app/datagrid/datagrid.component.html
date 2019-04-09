@@ -1,0 +1,43 @@
+
+<head>
+        <title>Bootstrap Example</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+      </head>
+<app-header></app-header>
+
+<div style="float: right;
+padding: 15px;">
+<button
+type="submit"
+[routerLink]="['/add']"
+class="btn btn-dark">Add</button>
+</div>
+<table class="table table-bordered">
+    <thead>
+    <tr style="background:lightgrey" id="tblheading">
+        <td>Sr.No</td>
+        <td>Employee Code</td>
+        <td>Employee Name</td>
+        <td>Designation</td>
+        <td colspan="2">Actions</td>
+    </tr>
+    </thead>
+  
+    <tbody>
+        <tr *ngFor="let emp of empData">
+            <td>{{emp.srno}}</td>
+            <td>{{emp.empCode}}</td>
+            <td>{{emp.name}}</td>
+            <td>{{emp.designation}}</td>
+            <td><a [routerLink]="['/edit', emp.srno]"  class="btn btn-primary">Edit</a></td>
+            <td><a (click)="deleteEmp(emp.srno)" class="btn btn-danger">Delete</a></td>
+        </tr>
+    </tbody>
+  </table>
+
+  
